@@ -8,12 +8,7 @@ Thumbs.db
 desktop.ini
 
 # Documentação interna (não vai para produção)
-Passp-a-passo/
-architecture/
-tools/
-findings.md
-progress.md
-task_plan.md
+docs/
 CLAUDE.md
 
 # Vídeos e arquivos grandes
