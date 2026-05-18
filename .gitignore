@@ -1,0 +1,22 @@
+# Arquivos temporários
+.tmp/
+*.tmp
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Documentação interna (não vai para produção)
+Passp-a-passo/
+architecture/
+tools/
+findings.md
+progress.md
+task_plan.md
+CLAUDE.md
+
+# Vídeos e arquivos grandes
+*.mp4
+*.avi
+*.mov

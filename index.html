@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPEN HOUSE — Confirme sua Presença</title>
+    <meta name="description" content="Confirme sua presença no evento OPEN HOUSE. Insira a senha e garanta sua vaga.">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Scanline overlay -->
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- ========== SEÇÃO 1: HERO ========== -->
+    <section id="hero" class="section section--hero">
+        <div class="container">
+
+            <img src="assets/logo_openhouse.jpg" alt="Open House" class="logo" id="logo">
+
+            <!-- Countdown -->
+            <div class="countdown" id="countdown">
+                <div class="countdown__block">
+                    <span class="countdown__number" id="countdown-days">??</span>
+                    <span class="countdown__label">DIAS</span>
+                </div>
+                <span class="countdown__separator">:</span>
+                <div class="countdown__block">
+                    <span class="countdown__number" id="countdown-hours">00</span>
+                    <span class="countdown__label">HORAS</span>
+                </div>
+                <span class="countdown__separator">:</span>
+                <div class="countdown__block">
+                    <span class="countdown__number" id="countdown-minutes">00</span>
+                    <span class="countdown__label">MIN</span>
+                </div>
+                <span class="countdown__separator">:</span>
+                <div class="countdown__block">
+                    <span class="countdown__number" id="countdown-seconds">00</span>
+                    <span class="countdown__label">SEG</span>
+                </div>
+            </div>
+
+            <!-- Event Name -->
+            <h1 class="event-name" id="event-name">
+                <span class="glitch" data-text="OPEN HOUSE">OPEN HOUSE</span>
+            </h1>
+            <p class="event-info" id="event-info">DATA A DEFINIR</p>
+
+            <!-- Password -->
+            <div class="password-gate" id="password-gate">
+                <p class="password-gate__prompt">INSIRA A SENHA PARA CONFIRMAR PRESENÇA</p>
+                <div class="password-gate__wrapper">
+                    <input
+                        type="password"
+                        id="password-input"
+                        class="password-gate__input"
+                        placeholder="••••••"
+                        maxlength="5"
+                        autocomplete="off"
+                        inputmode="text"
+                    >
+                    <button type="button" id="toggle-password" class="password-gate__toggle" aria-label="Mostrar senha">
+                        <!-- Eye icon (visible) -->
+                        <svg id="icon-eye" class="password-gate__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                        <!-- Eye-off icon (hidden) -->
+                        <svg id="icon-eye-off" class="password-gate__icon hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                            <line x1="1" y1="1" x2="23" y2="23"/>
+                        </svg>
+                    </button>
+                </div>
+                <p class="password-gate__error hidden" id="password-error">Senha incorreta. Tente novamente.</p>
+                <button id="enter-btn" class="btn btn--primary">ENTRAR</button>
+            </div>
+
+            <!-- Access Granted (hidden initially) -->
+            <div class="access-granted hidden" id="access-granted">
+                <p class="access-granted__message">
+                    <span class="access-granted__check">✓</span>
+                    ACESSO LIBERADO — CONFIRMAR PRESENÇA
+                </p>
+                <div class="scroll-indicator" id="scroll-indicator">
+                    <span class="scroll-indicator__arrow">⌄</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== SEÇÃO 2: RSVP ========== -->
+    <section id="rsvp" class="section section--rsvp hidden">
+        <div class="container">
+
+            <h2 class="rsvp__title">RSVP</h2>
+            <p class="rsvp__subtitle">CONFIRME SUA PRESENÇA</p>
+
+            <form id="rsvp-form" class="rsvp__form" novalidate>
+                <!-- Titular -->
+                <div class="form-group">
+                    <input type="text" id="field-nome" name="nome" class="form-input" placeholder="Seu nome *" required minlength="2">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="field-email" name="email" class="form-input" placeholder="Seu e-mail *" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="field-idade" name="idade" class="form-input" placeholder="Sua idade *" required min="1" max="120">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="field-instagram" name="instagram" class="form-input" placeholder="@instagram">
+                </div>
+
+                <!-- Guests container -->
+                <div id="guests-container"></div>
+
+                <button type="button" id="add-guest-btn" class="btn btn--secondary">+ ADICIONAR CONVIDADO</button>
+                <button type="submit" id="submit-btn" class="btn btn--primary">CONFIRMAR</button>
+            </form>
+
+            <!-- Success Message -->
+            <div class="rsvp__success hidden" id="rsvp-success">
+                <span class="rsvp__success-icon">✓</span>
+                <p class="rsvp__success-text">Presença confirmada com sucesso!</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== SEÇÃO 3: CONFIRMADOS ========== -->
+    <section id="confirmed" class="section section--confirmed hidden">
+        <div class="container">
+
+            <p class="confirmed__label">CONFIRMADOS</p>
+            <p class="confirmed__count" id="confirmed-count"></p>
+
+            <div class="confirmed__list" id="confirmed-list">
+                <!-- Populated by JS -->
+            </div>
+
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
