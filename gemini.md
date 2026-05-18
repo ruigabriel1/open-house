@@ -1,8 +1,8 @@
 # 📜 gemini.md — Constituição do Projeto Open House
 
-> **Versão:** 0.3
-> **Status:** Fase 5 — Gatilho (Deploy) — Layout Aprovado
-> **Última Atualização:** 2026-05-17
+> **Versão:** 0.4
+> **Status:** Fase 5 — Gatilho (Deploy) — Concluído (Deploy GitHub Pages)
+> **Última Atualização:** 2026-05-18
 
 ---
 
@@ -96,3 +96,4 @@
 | 2026-05-16 | Frontend construído (Fases 2-3) | Arquitetura e Link concluídos |
 | 2026-05-17 | Layout aprovado (Fase 4) | Usuário aprovou design visual |
 | 2026-05-17 | Versão atualizada para v0.3 | Entrada na Fase 5 — Deploy |
+| 2026-05-18 | Deploy concluído (v0.4) | Site publicado via GitHub Pages |
